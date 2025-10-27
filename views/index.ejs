@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa kurser - CV Kurser</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">CV Kurser</h1>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link active">Visa kurser</a></li>
+                <li><a href="/add-course" class="nav-link">Lägg till kurs</a></li>
+                <li><a href="/about" class="nav-link">Om sidan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>Mina kurser</h2>
+
+            <% if (error) { %>
+                <div class="alert alert-error">
+                    <%= error %>
+                </div>
+                <% } %>
+
+                    <% if (courses.length===0) { %>
+                        <div class="no-courses">
+                            <p>Inga kurser har lagts till än.</p>
+                            <a href="/add-course" class="btn btn-primary">Lägg till din första kurs</a>
+                        </div>
+                        <% } else { %>
+                            <div class="courses-grid">
+                                <!-- Loopar igenom alla kurser och visar dem -->
+                                <% courses.forEach(course=> { %>
+                                    <div class="course-card">
+                                        <div class="course-header">
+                                            <h3>
+                                                <%= course.coursecode %>
+                                            </h3>
+                                            <span class="progression">Progression: <%= course.progression %></span>
+                                        </div>
+                                        <h4>
+                                            <%= course.coursename %>
+                                        </h4>
+                                        <div class="course-actions">
+                                            <a href="<%= course.syllabus %>" target="_blank"
+                                                class="btn btn-secondary">Kursplan</a>
+                                            <form method="POST" action="/delete-course/<%= course.id %>"
+                                                style="display: inline;">
+                                                <button type="submit" class="btn btn-danger"
+                                                    onclick="return confirm('Är du säker på att du vill radera denna kurs?')">
+                                                    Radera
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <small class="created-date">Tillagd: <%= new
+                                                Date(course.created_at).toLocaleDateString('sv-SE') %></small>
+                                    </div>
+                                    <% }); %>
+                            </div>
+                            <% } %>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>2025 DT207G Backend-baserad webbutveckling - Hannes Wilson (hawi2401) </p>
+    </footer>
+</body>
+
+</html>

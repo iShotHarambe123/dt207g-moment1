@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om sidan - CV Kurser</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-title">CV Kurser</h1>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Visa kurser</a></li>
+                <li><a href="/add-course" class="nav-link">Lägg till kurs</a></li>
+                <li><a href="/about" class="nav-link active">Om sidan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <h2>Om CV Kurser</h2>
+
+            <div class="about-content">
+                <section class="about-section">
+                    <h3>Syfte</h3>
+                    <p>
+                        Den här webbappen byggde jag som en del av kursen "Backend-baserad webbutveckling" (DT207G)
+                        på Mittuniversitetet. Tanken var att visa att jag kan jobba med serverbaserad webbutveckling
+                        med Node.js, Express och databaser. Ganska kul att få bygga något från grunden!
+                    </p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Funktionalitet</h3>
+                    <p>
+                        Med appen kan man:
+                    </p>
+                    <ul>
+                        <li>Se alla kurser som finns sparade</li>
+                        <li>Lägga till nya kurser (kurskod, namn, länk till kursplan och progression A/B)</li>
+                        <li>Ta bort kurser man inte vill ha kvar</li>
+                        <li>Allt valideras på servern så man inte kan mata in fel data</li>
+                    </ul>
+                </section>
+
+                <section class="about-section">
+                    <h3>Teknisk implementation</h3>
+                    <div class="tech-info">
+                        <div class="tech-item">
+                            <h4>Databas</h4>
+                            <p><strong>SQLite</strong> - En filbaserad relationsdatabas som är perfekt för utveckling
+                                och mindre applikationer.</p>
+                        </div>
+
+                        <div class="tech-item">
+                            <h4>Backend</h4>
+                            <p><strong>Node.js & Express</strong> - JavaScript runtime och webbramverk för serverlogik.
+                            </p>
+                        </div>
+
+                        <div class="tech-item">
+                            <h4>Frontend</h4>
+                            <p><strong>EJS</strong> - Template engine för dynamisk HTML-generering.</p>
+                        </div>
+
+                        <div class="tech-item">
+                            <h4>Design</h4>
+                            <p><strong>Responsiv CSS</strong> - Mobilanpassad design som fungerar på alla
+                                skärmstorlekar.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h3>Databasstruktur</h3>
+                    <p>Kursinformation lagras i en tabell med följande struktur:</p>
+                    <div class="db-schema">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Fält</th>
+                                    <th>Typ</th>
+                                    <th>Beskrivning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>INTEGER</td>
+                                    <td>Primärnyckel (auto-increment)</td>
+                                </tr>
+                                <tr>
+                                    <td>coursecode</td>
+                                    <td>TEXT</td>
+                                    <td>Kurskod (t.ex. DT207G)</td>
+                                </tr>
+                                <tr>
+                                    <td>coursename</td>
+                                    <td>TEXT</td>
+                                    <td>Kursnamn</td>
+                                </tr>
+                                <tr>
+                                    <td>syllabus</td>
+                                    <td>TEXT</td>
+                                    <td>URL till kursplan</td>
+                                </tr>
+                                <tr>
+                                    <td>progression</td>
+                                    <td>TEXT</td>
+                                    <td>Kursprogression (A eller B)</td>
+                                </tr>
+                                <tr>
+                                    <td>created_at</td>
+                                    <td>DATETIME</td>
+                                    <td>Tidsstämpel för när kursen lades till</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h3>Slutsatser</h3>
+                    <p>
+                        Genom att utveckla denna applikation har jag fått praktisk erfarenhet av:
+                    </p>
+                    <ul>
+                        <li>Serverbaserad webbutveckling med Node.js och Express</li>
+                        <li>Databasintegration med SQL-kommandon (SELECT, INSERT, DELETE)</li>
+                        <li>Formulärhantering och serversidesvalidering</li>
+                        <li>Template engines för dynamisk innehållsgenerering</li>
+                        <li>Responsiv webbdesign och användarvänlighet</li>
+                    </ul>
+                    <p>
+                        Projektet visar hur moderna webbteknologier kan kombineras för att skapa
+                        funktionella och användarvänliga applikationer.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>2025 DT207G Backend-baserad webbutveckling - Hannes Wilson (hawi2401) </p>
+    </footer>
+</body>
+
+</html>
